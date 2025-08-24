@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>{{productName()}}</mat-card-title>
       <mat-card-subtitle>{{productPrice()}}</mat-card-subtitle>
@@ -9,7 +9,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button matButton>Edit</button>
-      <button matButton>Delete</button>
+      <button mat-raised-button color="primary">Edit</button>
+      <button mat-raised-button color="warn">Delete</button>
     </mat-card-actions>
   </mat-card>
