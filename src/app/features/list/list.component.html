@@ -1,1 +1,10 @@
-<p>list works!</p>
+<p>Product list</p>
+<ul>
+  @for(product of products;track product.id){
+    <li>
+        <h1>{{ product.title }}</h1>
+        <h2>{{ product.price }}</h2>
+        <p>{{ product.description }}</p>
+    </li>
+  }
+</ul>
