@@ -1,4 +1,9 @@
 .title{
-    // display: flex;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button-right{
+    display: flex;
+    justify-content: right;
 }
