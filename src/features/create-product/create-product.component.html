@@ -1,11 +1,29 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
     <div class="form-content-container">
         <mat-form-field>
-            <mat-label>Nome do Produto</mat-label>
+            <mat-label>Name</mat-label>
             <input matInput type="text" 
             name="Name" 
             formControlName="name" 
             placeholder="Product Name"
+            required />
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Product  Description</mat-label>
+            <textarea matInput 
+            name="Description" 
+            formControlName="description" 
+            placeholder="Product Description"
+            required></textarea>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Product Price</mat-label>
+            <input matInput type="number" 
+            name="Price" 
+            formControlName="price" 
+            placeholder="Product Price"
             required />
         </mat-form-field>
         <br/>
