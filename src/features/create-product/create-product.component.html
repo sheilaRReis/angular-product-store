@@ -1,35 +1,45 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
-    <div class="form-content-container">
-        <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput type="text" 
-            name="Name" 
-            formControlName="name" 
-            placeholder="Product Name"
-            required />
-        </mat-form-field>
-        <br/>
-        <mat-form-field>
-            <mat-label>Product  Description</mat-label>
-            <textarea matInput 
-            name="Description" 
-            formControlName="description" 
-            placeholder="Product Description"
-            required></textarea>
-        </mat-form-field>
-        <br/>
-        <mat-form-field>
-            <mat-label>Product Price</mat-label>
-            <input matInput type="number" 
-            name="Price" 
-            formControlName="price" 
-            placeholder="Product Price"
-            required />
-        </mat-form-field>
-        <br/>
-        <button 
-            mat-raised-button 
-            color="primary" 
-            type="submit">Save</button>
-    </div>
+<form [formGroup]="form" (submit)="onSubmit($event)" class="form-container">
+  <div class="form-content-container">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text"
+              name="Name"
+              formControlName="name"
+              placeholder="Product Name"
+              required />
+      <mat-error *ngIf="controls.name.hasError('required') && (controls.name.touched || controls.name.dirty)">Required</mat-error>
+      <mat-error *ngIf="controls.name.hasError('minlength') && (controls.name.touched || controls.name.dirty)">Min length 5</mat-error>
+      <mat-error *ngIf="controls.name.hasError('maxlength') && (controls.name.touched || controls.name.dirty)">Max length 100</mat-error>
+      <mat-error *ngIf="controls.name.hasError('nameTaken') && (controls.name.touched || controls.name.dirty)">Name already taken</mat-error>
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field>
+      <mat-label>Product Description</mat-label>
+      <textarea matInput
+                name="Description"
+                formControlName="description"
+                placeholder="Product Description"></textarea>
+      <mat-error *ngIf="controls.description?.hasError('maxlength') && (controls.description.touched || controls.description.dirty)">Max length 500</mat-error>
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field>
+      <mat-label>Product Price</mat-label>
+      <input matInput type="number"
+              name="Price"
+              formControlName="price"
+              placeholder="Product Price"
+              required />
+      <mat-error *ngIf="controls.price.hasError('required') && (controls.price.touched || controls.price.dirty)">Required</mat-error>
+      <mat-error *ngIf="controls.price.hasError('min') && (controls.price.touched || controls.price.dirty)">Min value 0.01</mat-error>
+      <mat-error *ngIf="controls.price.hasError('pattern') && (controls.price.touched || controls.price.dirty)">Use up to 2 decimals</mat-error>
+    </mat-form-field>
+
+    <br/>
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="form.invalid || submitting || form.pending">
+      Save
+    </button>
+  </div>
 </form>
