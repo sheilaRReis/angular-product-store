@@ -115,11 +115,11 @@ export class CreateProductComponent {
             this.form.markAsUntouched();
           }
 
-          this.snackBar.open('Product created successfully', 'Close', { duration: 3000 });
+          this.snackBar.open('Product created successfully', 'Close');
         },
         error: (err) => {
           console.error('Failed to create product.', err);
-          this.snackBar.open('Failed to create product. Please try again.', 'Close', { duration: 5000 });
+          this.snackBar.open('Failed to create product. Please try again.', 'Close');
         }
       });
   }
