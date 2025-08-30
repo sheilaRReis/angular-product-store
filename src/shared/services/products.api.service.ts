@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class ProductApiService {
   private readonly http = inject(HttpClient);
 
   getAll(): Observable<Product[]> {

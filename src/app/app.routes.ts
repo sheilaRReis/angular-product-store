@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { ListComponent } from './features/list/list.component';
+import { ListComponent } from '../features/products/components/product-list/list.component';
 
 export const routes: Routes = [{
     path: '',
@@ -8,6 +8,6 @@ export const routes: Routes = [{
 {
     path: 'create-product',
     loadComponent: () => 
-      import("../features/create-product/create-product.component").then(m => m.CreateProductComponent)  
+      import("../features/products/components/product-create/create-product.component").then(m => m.CreateProductComponent)  
     
 }];

@@ -4,8 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { ProductsService } from '../../app/shared/services/products.service';
-import { ProductPayload } from '../../app/shared/interfaces/product.payload.interface';
+import { ProductApiService } from '../../../../shared/services/products.api.service';
+import { ProductPayload } from '../../../../shared/interfaces/product.payload.interface';
 import { of, Observable, firstValueFrom, timer } from 'rxjs';
 import { switchMap, map, catchError, take, finalize, filter } from 'rxjs/operators';
 import { NgIf } from '@angular/common';
@@ -18,7 +18,7 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent {
-  productsService = inject(ProductsService);
+  productsService = inject(ProductApiService);
   fb = inject(FormBuilder);
   snackBar = inject(MatSnackBar);
 

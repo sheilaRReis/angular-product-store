@@ -1,17 +1,17 @@
 import { Component, computed, Input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { Product } from '../../../../app/shared/interfaces/product.interface';
+import { Product } from '../../../../shared/interfaces/product.interface';
 
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [MatCardModule, MatButtonModule],
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class ProductCardComponent implements OnInit {
   @Input({ required: true }) product!: Product;
 
   productName = computed(() => this.product.name);
